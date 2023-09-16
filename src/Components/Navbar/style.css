@@ -43,11 +43,11 @@
 }
 
 .menu-list li a {
-    @apply block w-full h-full px-3.5 py-1.5 rounded-md font-medium text-base uppercase cursor-pointer md:px-2.5 md:py-0.5 lg:text-lg;
+    @apply block w-full h-full px-3.5 py-1.5 rounded-md border border-transparent font-medium text-base uppercase cursor-pointer transition duration-300 ease-in-out md:px-2.5 md:py-0.5 lg:text-lg;
 }
 
-.menu-active {
-    @apply border border-white;
+.menu-list li .menu-active {
+    @apply border-white;
 }
 
 .header-user {
@@ -55,7 +55,7 @@
 }
 
 .user-icon {
-    @apply w-8 h-8 text-xl text-white;
+    @apply w-8 h-8 text-xl text-white lg:w-9 lg:h-9;
 }
 
 .user-info {
@@ -63,13 +63,14 @@
 }
 
 .header-order {
-    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer;
+    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer lg:w-9 lg:h-9;
 }
 
 .order-counter {
-    @apply w-3.5 h-3.5 absolute top-0 right-0 flex items-center justify-center rounded-full bg-color-primary text-white;
-
     font-size: 10px;
+
+    @apply w-3.5 h-3.5 absolute top-0 right-0 flex items-center justify-center rounded-full bg-color-primary text-white lg:w-4 lg:h-4 lg:text-xs;
+
 }
 
 .order-icon {

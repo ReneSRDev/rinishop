@@ -1,9 +1,13 @@
 import Layout from '../../Components/Layout';
+import Product from '../../Components/Product'
+import './style.css';
 
 function Home() {
     return (
         <Layout>
-            <span>Home</span>
+            <div className='index-products'>
+                <Product />
+            </div>
         </Layout>
     )
 }

@@ -6,6 +6,16 @@ import './style.css'
 
 const Navbar = () => {
     const activeStyle = 'menu-active';
+    const demoCartCounter = 0;
+
+    const flagCartCounter = (cartCounter) => {
+        if (cartCounter > 0) {
+            return 'order-counter';
+        } else {
+            return 'hidden'
+        }
+    }
+
     const context = useContext(ShopContext);
 
     return (
@@ -19,7 +29,7 @@ const Navbar = () => {
                         <span className='logo-text'>RiniShop</span>
                     </NavLink>
                 </div>
-                <div className={`header-menu ${!context.isNavMenuOpen ? 'menu-inactive': undefined}`}>
+                <div className={`header-menu ${!context.isNavMenuOpen ? 'menu-inactive': ''}`}>
                     <XMarkIcon
                         className='menu-icon'
                         onClick={() => context.closeNavMenu()}
@@ -28,7 +38,7 @@ const Navbar = () => {
                         <li>
                         <NavLink
                             to='/'
-                            className={({ isActive }) => isActive ? activeStyle : undefined}
+                            className={({ isActive }) => isActive ? activeStyle : ''}
                             onClick={() => context.closeNavMenu()}
                         >
                             All
@@ -37,7 +47,7 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/nintendo'
-                                className={({ isActive }) => isActive ? activeStyle : undefined}
+                                className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
                                 Nintendo
@@ -46,7 +56,7 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/sony'
-                                className={({ isActive }) => isActive ? activeStyle : undefined}
+                                className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
                                 Sony
@@ -55,7 +65,7 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/xbox'
-                                className={({ isActive }) => isActive ? activeStyle : undefined}
+                                className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
                                 X-Box
@@ -64,7 +74,7 @@ const Navbar = () => {
                         <li>
                             <NavLink
                                 to='/others'
-                                className={({ isActive }) => isActive ? activeStyle : undefined}
+                                className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
                                 Others
@@ -77,7 +87,7 @@ const Navbar = () => {
                     <span className='user-info'>My Orders</span>
                 </div>
                 <div className='header-order'>
-                    <span className='order-counter'>1</span>
+                    <span className={flagCartCounter(demoCartCounter)}>{demoCartCounter}</span>
                     <ShoppingBagIcon className='order-icon' />
                 </div>
                 <button

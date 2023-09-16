@@ -1,0 +1,3 @@
+.index-products {
+    @apply w-full grid grid-cols-1 max-w-xs py-5;
+}

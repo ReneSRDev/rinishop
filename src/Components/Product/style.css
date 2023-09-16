@@ -1,0 +1,31 @@
+.product-container {
+    @apply bg-body-secondary w-60 h-48 rounded-lg cursor-pointer mx-auto;
+}
+
+.product-container--img {
+    @apply relative w-full h-4/5;
+}
+
+.product-img {
+    @apply w-full h-full object-cover rounded-lg;
+}
+
+.product-icon {
+    @apply absolute w-8 h-8 top-2 right-2 flex justify-center items-center bg-color-primary rounded-full;
+}
+
+.product-icon svg {
+    @apply w-6 h-6 text-white;
+}
+
+.product-container--info {
+    @apply flex justify-between items-center w-full h-1/5 px-3
+}
+
+.product-name {
+    @apply text-sm text-white truncate text-ellipsis mr-3
+}
+
+.product-price {
+    @apply text-lg font-medium text-white;
+}
