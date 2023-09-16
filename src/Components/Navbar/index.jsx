@@ -28,9 +28,9 @@ const Navbar = () => {
                         <li>
                         <NavLink
                             to='/'
-                            className={({ isActive }) => 
-                                isActive ? activeStyle : undefined
-                        }>
+                            className={({ isActive }) => isActive ? activeStyle : undefined}
+                            onClick={() => context.closeNavMenu()}
+                        >
                             All
                         </NavLink>
                         </li>
