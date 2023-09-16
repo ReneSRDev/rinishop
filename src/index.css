@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-body: #2f3434;
+    --bg-secondary: #0e0e29;
+    --color-primary: #542476;
+    --color-secondary: #eb3f55;
+    --color-tertiary: #dd683b;
+    --font-anton: 'Anton';
+}
+
+body {
+    @apply bg-body-primary;
+}

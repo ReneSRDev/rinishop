@@ -1,0 +1,85 @@
+.navbar {
+    @apply w-full bg-body-secondary;
+}
+
+.navbar-container {
+    @apply mx-auto max-w-7xl px-4 py-3 gap-3 flex items-center text-white md:gap-5 lg:py-4 lg:gap-10;
+}
+
+.header-logo a {
+    @apply flex items-center;
+}
+
+.logo-icon {
+    @apply w-8 h-8 mr-1 lg:w-12 lg:h-12 lg:mr-3;
+}
+
+.logo-text {
+    @apply font-anton text-2xl font-medium lg:text-3xl;
+}
+
+.header-menu {
+    @apply absolute w-full h-full top-0 left-0 z-10 flex justify-end items-start md:relative md:w-auto md:h-auto md:justify-start;
+}
+
+.menu-inactive {
+    @apply hidden md:flex;
+}
+
+.header-menu:before {
+    @apply content-[''] block absolute w-full h-full bg-body-primary opacity-80 md:hidden;
+}
+
+.menu-icon {
+    @apply w-8 h-8 relative z-10 mr-2 mt-2 cursor-pointer md:hidden;
+}
+
+.menu-list {
+    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 md:flex md:w-auto md:h-auto md:bg-transparent md:p-0 md:gap-2;
+}
+
+.menu-list li {
+    @apply mt-1 first:mt-0 md:mt-0;
+}
+
+.menu-list li a {
+    @apply block w-full h-full px-3.5 py-1.5 rounded-md font-medium text-base uppercase cursor-pointer md:px-2.5 md:py-0.5 lg:text-lg;
+}
+
+.menu-active {
+    @apply border border-white;
+}
+
+.header-user {
+    @apply ml-auto flex items-center justify-center cursor-pointer;
+}
+
+.user-icon {
+    @apply w-8 h-8 text-xl text-white;
+}
+
+.user-info {
+    @apply hidden ml-1 text-base font-medium uppercase md:inline-block lg:text-lg;
+}
+
+.header-order {
+    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer;
+}
+
+.order-counter {
+    @apply w-3.5 h-3.5 absolute top-0 right-0 flex items-center justify-center rounded-full bg-color-primary text-white;
+
+    font-size: 10px;
+}
+
+.order-icon {
+    @apply text-xl text-white;
+}
+
+.header-button-menu {
+    @apply w-8 h-8 p-1 rounded-md bg-color-primary md:hidden;
+}
+
+.bars-icon {
+    @apply text-lg text-white;
+}
