@@ -10,9 +10,39 @@ export const ShopProvider = ({ children }) => {
     const openNavMenu = () => setIsNavMenuOpen(true);
     const closeNavMenu = () => setIsNavMenuOpen(false);
 
+    const [productToView, setProductToView] = useState(10);
+    const [firstProductToView, setFirstProductToView] = useState(0);
+    const [lastProductToView, setLastProductToView] = useState(productToView);
+    const [leftArrow, setLeftArrow] = useState(false);
+    const [rightArrow, setRightArrow] = useState(true);
 
+    const subtractProductsToView = () => {
+        setLastProductToView(firstProductToView);
+        setFirstProductToView(firstProductToView - productToView);
+        setRightArrow(true);
+
+        if (firstProductToView <= 0) {
+            setFirstProductToView(0);
+            setLastProductToView(productToView);
+            setLeftArrow(false);
+        }
+    }
+    const addProductsToView = () => {
+        setFirstProductToView(lastProductToView);
+        setLastProductToView(lastProductToView + productToView); 
+        setLeftArrow(true);
+
+        if (lastProductToView > products.length) {
+            setLastProductToView(products.length);
+            setFirstProductToView(products.length - productToView);
+            setRightArrow(false);
+        }
+    }
+
+    /* Products - State of the products */
     const [products, setProducts] = useState(null);
 
+    /* Products - Function that extract the info of the products from the API */
     useEffect(() => {
         setTimeout(() => {
             fetch(APIG)
@@ -26,8 +56,14 @@ export const ShopProvider = ({ children }) => {
             isNavMenuOpen,
             openNavMenu,
             closeNavMenu,
+            firstProductToView,
+            lastProductToView,
+            subtractProductsToView,
+            addProductsToView,
+            leftArrow,
+            rightArrow,
             products,
-            setProducts
+            setProducts,
         }}>
             {children}
         </ShopContext.Provider>
