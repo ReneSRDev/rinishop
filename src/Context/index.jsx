@@ -10,18 +10,69 @@ export const ShopProvider = ({ children }) => {
     const openNavMenu = () => setIsNavMenuOpen(true);
     const closeNavMenu = () => setIsNavMenuOpen(false);
 
-    const [productToView, setProductToView] = useState(10);
+    const [valueSelectTop, setValueSelectTop] = useState(0);
+
+    const [widthScreen, setWidthScreen] = useState(window.innerWidth);
+    const [heightScreen, setHeightScreen] = useState(window.innerHeight);
+
+    useEffect( () => {
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleResize = () => {
+        setWidthScreen(window.innerWidth);
+        setHeightScreen(window.innerHeight);
+    }
+
+    useEffect(() => {
+        if (widthScreen < 640) {
+            setValueSelectTop(5);
+        }
+        if (widthScreen >= 640 && widthScreen < 768) {
+            setValueSelectTop(6);
+        }
+        if (widthScreen >= 768 && widthScreen < 1024) {
+            setValueSelectTop(9);
+        }
+        if (widthScreen >= 1024 && widthScreen < 1280) {
+            setValueSelectTop(12);
+        }
+        if (widthScreen >= 1280 && widthScreen < 1536) {
+            setValueSelectTop(15);
+        }
+        if (widthScreen >= 1536) {
+            setValueSelectTop(18);
+        }
+    }, [widthScreen]);
+
+    /* Product to View - States that determine the numbers of product to view in the window */
+    const [productToView, setProductToView] = useState(0);
     const [firstProductToView, setFirstProductToView] = useState(0);
-    const [lastProductToView, setLastProductToView] = useState(productToView);
+    const [lastProductToView, setLastProductToView] = useState(0);
+
+    useEffect(() => {
+        setProductToView(valueSelectTop)
+    }, [valueSelectTop]);
+
+    useEffect(() => {
+        setLastProductToView(productToView)
+    }, [productToView]);
+
+    /* Arrows - States that determine if the arrow are disables or not */
     const [leftArrow, setLeftArrow] = useState(false);
     const [rightArrow, setRightArrow] = useState(true);
 
+    /* Arrows - Functions that add or subtract the number of products to be seen and determine from which number to which number they will be seen on the screen  */
     const subtractProductsToView = () => {
         setLastProductToView(firstProductToView);
         setFirstProductToView(firstProductToView - productToView);
         setRightArrow(true);
 
-        if (firstProductToView <= 0) {
+        if (firstProductToView - productToView <= 0) {
             setFirstProductToView(0);
             setLastProductToView(productToView);
             setLeftArrow(false);
@@ -32,11 +83,17 @@ export const ShopProvider = ({ children }) => {
         setLastProductToView(lastProductToView + productToView); 
         setLeftArrow(true);
 
-        if (lastProductToView > products.length) {
+        if (lastProductToView + productToView > products.length) {
             setLastProductToView(products.length);
-            setFirstProductToView(products.length - productToView);
+            setFirstProductToView(products.length - (products.length % productToView));
             setRightArrow(false);
+            
+            console.log(lastProductToView + productToView);
+            console.log(productToView);
+            console.log(lastProductToView);
+            console.log(products.length);
         }
+
     }
 
     /* Products - State of the products */
@@ -56,8 +113,15 @@ export const ShopProvider = ({ children }) => {
             isNavMenuOpen,
             openNavMenu,
             closeNavMenu,
+            valueSelectTop,
+            widthScreen,
+            heightScreen,
+            setFirstProductToView,
             firstProductToView,
+            setLastProductToView,
             lastProductToView,
+            setProductToView,
+            productToView, 
             subtractProductsToView,
             addProductsToView,
             leftArrow,

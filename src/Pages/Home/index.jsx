@@ -16,12 +16,29 @@ function Home() {
         }
     }
 
+    const handleSelect = (event) => {
+        context.setProductToView(parseInt(event.target.value));
+        context.setFirstProductToView(0);
+        context.setLastProductToView(context.productToView);
+    }
+
     return (
         <Layout>
             <div className='index-top'>
                 <div className='top-info'>
                     <span className='first-line'>{context.firstProductToView + 1} of {context.lastProductToView} articles of</span>
                     <span className='second-line'>All</span>
+                </div>
+                <div>
+                    <select
+                        onChange={(event) => handleSelect(event)}
+                        name="numberOfProductToView"
+                    >
+                        <option value={context.valueSelectTop}>{context.valueSelectTop}</option>
+                        <option value={context.valueSelectTop * 2}>{context.valueSelectTop * 2}</option>
+                        <option value={context.valueSelectTop * 3}>{context.valueSelectTop * 3}</option>
+                        <option value={context.valueSelectTop * 4}>{context.valueSelectTop * 4}</option>
+                    </select>
                 </div>
                 <div className='top-control'>
                     <button

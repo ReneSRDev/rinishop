@@ -1,5 +1,5 @@
 .index-top {
-    @apply flex justify-between items-center mb-5;
+    @apply flex px-4 items-center mb-5;
 }
 
 .top-info {
