@@ -3,7 +3,7 @@
 }
 
 .navbar-container {
-    @apply mx-auto max-w-7xl px-4 py-3 gap-3 flex items-center text-white md:gap-5 lg:py-4 lg:gap-10;
+    @apply mx-auto max-w-screen-2xl px-4 py-3 gap-3 flex items-center text-white lg:gap-5 xl:py-4 xl:gap-10 2xl:px-8;
 }
 
 .header-logo a {
@@ -11,39 +11,39 @@
 }
 
 .logo-icon {
-    @apply w-8 h-8 mr-1 lg:w-12 lg:h-12 lg:mr-3;
+    @apply w-8 h-8 mr-1 xl:w-12 xl:h-12 xl:mr-3;
 }
 
 .logo-text {
-    @apply font-anton text-2xl font-medium lg:text-3xl;
+    @apply font-anton text-2xl font-medium xl:text-3xl;
 }
 
 .header-menu {
-    @apply absolute w-full h-full top-0 left-0 z-10 flex justify-end items-start md:relative md:w-auto md:h-auto md:justify-start;
+    @apply absolute w-full h-full top-0 left-0 z-10 flex justify-end items-start lg:relative lg:w-auto lg:h-auto lg:justify-start;
 }
 
 .menu-inactive {
-    @apply hidden md:flex;
+    @apply hidden lg:flex;
 }
 
 .header-menu:before {
-    @apply content-[''] block absolute w-full h-full bg-body-primary opacity-80 md:hidden;
+    @apply content-[''] block absolute w-full h-full bg-body-primary opacity-80 lg:hidden;
 }
 
 .menu-icon {
-    @apply w-8 h-8 relative z-10 mr-2 mt-2 cursor-pointer md:hidden;
+    @apply w-8 h-8 relative z-10 mr-2 mt-2 cursor-pointer lg:hidden;
 }
 
 .menu-list {
-    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 md:flex md:w-auto md:h-auto md:bg-transparent md:p-0 md:gap-2;
+    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:p-0 lg:gap-2;
 }
 
 .menu-list li {
-    @apply mt-1 first:mt-0 md:mt-0;
+    @apply mt-1 first:mt-0 lg:mt-0;
 }
 
 .menu-list li a {
-    @apply block w-full h-full px-3.5 py-1.5 rounded-md border border-transparent font-medium text-base uppercase cursor-pointer transition duration-300 ease-in-out md:px-2.5 md:py-0.5 lg:text-lg;
+    @apply block w-full h-full px-3.5 py-1.5 rounded-md border border-transparent font-medium text-base uppercase cursor-pointer transition duration-300 ease-in-out lg:px-2.5 lg:py-0.5 xl:text-lg;
 }
 
 .menu-list li .menu-active {
@@ -55,21 +55,21 @@
 }
 
 .user-icon {
-    @apply w-8 h-8 text-xl text-white lg:w-9 lg:h-9;
+    @apply w-8 h-8 text-xl text-white xl:w-9 xl:h-9;
 }
 
 .user-info {
-    @apply hidden ml-1 text-base font-medium uppercase md:inline-block lg:text-lg;
+    @apply hidden ml-1 text-base font-medium uppercase lg:inline-block xl:text-lg;
 }
 
 .header-order {
-    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer lg:w-9 lg:h-9;
+    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer xl:w-9 xl:h-9;
 }
 
 .order-counter {
     font-size: 10px;
 
-    @apply w-3.5 h-3.5 absolute top-0 right-0 flex items-center justify-center rounded-full bg-color-primary text-white lg:w-4 lg:h-4 lg:text-xs;
+    @apply w-3.5 h-3.5 absolute top-0 right-0 flex items-center justify-center rounded-full bg-color-primary text-white xl:w-4 xl:h-4 xl:text-xs;
 
 }
 
@@ -78,7 +78,7 @@
 }
 
 .header-button-menu {
-    @apply w-8 h-8 p-1 rounded-md bg-color-primary md:hidden;
+    @apply w-8 h-8 p-1 rounded-md bg-color-primary lg:hidden;
 }
 
 .bars-icon {

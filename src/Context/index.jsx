@@ -1,19 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
-const APIG = 'https://amazon23.p.rapidapi.com/product-search?query=videojuegos&country=MX';
-const optionsGeneral = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '2c77aa7073msh0c5e4553810d56cp1a0f4bjsn1cd896dd0ab5',
-		'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
-	}
-};
-
-async function fetchList(urlApi) {
-    const response = await fetch(urlApi, optionsGeneral);
-    const data = await response.json();
-    return data;
-}
+const APIG = 'https://api.escuelajs.co/api/v1/products';
 
 export const ShopContext = createContext();
 
@@ -27,20 +14,20 @@ export const ShopProvider = ({ children }) => {
     const [products, setProducts] = useState(null);
 
     useEffect(() => {
-        async () => {
-            try {
-                setProducts(fetchList(APIG));
-            } catch (error) {
-                console.log('Hubo error');
-            }
-        }}, []
-    )
+        setTimeout(() => {
+            fetch(APIG)
+                .then(response => response.json())
+                .then(data => setProducts(data))
+        }, 3000);
+    }, []);
 
     return (
         <ShopContext.Provider value= {{
             isNavMenuOpen,
             openNavMenu,
-            closeNavMenu
+            closeNavMenu,
+            products,
+            setProducts
         }}>
             {children}
         </ShopContext.Provider>

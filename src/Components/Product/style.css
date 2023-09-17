@@ -1,5 +1,5 @@
 .product-container {
-    @apply bg-body-secondary w-60 h-48 rounded-lg cursor-pointer mx-auto;
+    @apply bg-body-secondary w-60 h-48 rounded-lg cursor-pointer sm:w-full sm:h-56;
 }
 
 .product-container--img {
