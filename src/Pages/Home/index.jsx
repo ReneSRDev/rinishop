@@ -29,7 +29,7 @@ function Home() {
                     <span className='first-line'>{context.firstProductToView + 1} of {context.lastProductToView} articles of</span>
                     <span className='second-line'>All</span>
                 </div>
-                <div>
+                <div className='index-select'>
                     <select
                         onChange={(event) => handleSelect(event)}
                         name="numberOfProductToView"

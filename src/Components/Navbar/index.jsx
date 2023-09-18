@@ -46,29 +46,29 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to='/nintendo'
+                                to='/clothes'
                                 className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
-                                Nintendo
+                                Clothes
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                to='/sony'
+                                to='/shoes'
                                 className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
-                                Sony
+                                Shoes
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                to='/xbox'
+                                to='/furniture'
                                 className={({ isActive }) => isActive ? activeStyle : ''}
                                 onClick={() => context.closeNavMenu()}
                             >
-                                X-Box
+                                Furniture
                             </NavLink>
                         </li>
                         <li>

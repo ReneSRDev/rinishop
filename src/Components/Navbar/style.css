@@ -43,11 +43,18 @@
 }
 
 .menu-list li a {
-    @apply block w-full h-full px-3.5 py-1.5 rounded-md border border-transparent font-medium text-base uppercase cursor-pointer transition duration-300 ease-in-out lg:px-2.5 lg:py-0.5 xl:text-lg;
+    @apply transition-all duration-300 ease-in-out block w-full h-full px-3.5 py-1.5 rounded-md border border-transparent font-medium text-base uppercase cursor-pointer transition duration-300 ease-in-out lg:px-2.5 lg:py-0.5 xl:text-lg;
+}
+
+.menu-list li a:hover {
+    @apply text-color-secondary;
 }
 
 .menu-list li .menu-active {
     @apply border-white;
+}
+.menu-list li .menu-active:hover {
+    @apply text-white;
 }
 
 .header-user {
