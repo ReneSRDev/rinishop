@@ -10,11 +10,14 @@ export const ShopProvider = ({ children }) => {
     const openNavMenu = () => setIsNavMenuOpen(true);
     const closeNavMenu = () => setIsNavMenuOpen(false);
 
+    /* Select - State of the Select in home */
     const [valueSelectTop, setValueSelectTop] = useState(0);
-
+    
+    /* Screen - States of the window (Width/Height) */
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
     const [heightScreen, setHeightScreen] = useState(window.innerHeight);
 
+    /* Screen - Function that add or remove the Event to the resize in window */
     useEffect( () => {
         window.addEventListener('resize', handleResize);
         
@@ -23,11 +26,13 @@ export const ShopProvider = ({ children }) => {
         };
     }, []);
 
+    /* Screen - Function that change the state of the sizes of windows */
     const handleResize = () => {
         setWidthScreen(window.innerWidth);
         setHeightScreen(window.innerHeight);
     }
 
+    /* Select - Function that initialize the vale in select according to the screen */
     useEffect(() => {
         if (widthScreen < 640) {
             setValueSelectTop(5);
@@ -54,10 +59,12 @@ export const ShopProvider = ({ children }) => {
     const [firstProductToView, setFirstProductToView] = useState(0);
     const [lastProductToView, setLastProductToView] = useState(0);
 
+    /* Screen - Function that change the value in Select */
     useEffect(() => {
         setProductToView(valueSelectTop)
     }, [valueSelectTop]);
-
+    
+    /* Screen - Function that change the value in Last Product to View */
     useEffect(() => {
         setLastProductToView(productToView)
     }, [productToView]);
@@ -93,8 +100,13 @@ export const ShopProvider = ({ children }) => {
             console.log(lastProductToView);
             console.log(products.length);
         }
-
     }
+
+    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
+    const openProductDetail = () => setIsProductDetailOpen(true);
+    const closeProductDetail = () => setIsProductDetailOpen(false);
+
+    const [productToShow, setProductToShow] = useState({});
 
     /* Products - State of the products */
     const [products, setProducts] = useState(null);
@@ -126,6 +138,11 @@ export const ShopProvider = ({ children }) => {
             addProductsToView,
             leftArrow,
             rightArrow,
+            isProductDetailOpen,
+            openProductDetail,
+            closeProductDetail,
+            productToShow,
+            setProductToShow,
             products,
             setProducts,
         }}>
