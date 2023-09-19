@@ -7,7 +7,7 @@
 }
 
 .product-detail--icon {
-    @apply w-8 h-8 mt-2 mr-2 relative z-10 cursor-pointer lg:absolute lg:top-0 lg:left-2 lg:mr-0 lg:z-20;
+    @apply w-8 h-8 flex justify-center items-center mt-2 mr-2 relative z-10 cursor-pointer lg:absolute lg:top-2 lg:left-2 lg:mt-0 lg:mr-0 lg:z-20;
 }
 
 .product-detail--icon svg {
@@ -15,7 +15,7 @@
 }
 
 .product-detail--container {
-    @apply w-60 h-full relative z-10 bg-color-primary p-5 flex flex-col sm:w-96;
+    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 flex flex-col sm:w-96 lg:pt-9;
 }
 
 .product-detail--header {
@@ -44,4 +44,20 @@
 
 .product-detail--description {
     @apply text-sm leading-4 text-white;
+}
+
+.product-detail--button {
+    @apply transition-all duration-300 ease-in-out w-full h-14 flex justify-center items-center bg-body-secondary mt-auto text-white;
+}
+
+.product-detail--button svg {
+    @apply w-6 h-6 mr-2;
+}
+
+.product-detail--button span {
+    @apply text-lg font-bold uppercase;
+}
+
+.product-detail--button:hover {
+    @apply bg-color-tertiary;
 }

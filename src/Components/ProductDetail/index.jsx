@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ShopContext } from '../../Context';
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import './style.css';
 
 const ProductDetail = () => {
@@ -24,6 +24,10 @@ const ProductDetail = () => {
                 <span className='product-detail--title'>{context.productToShow.title}</span>
                 <span className='product-detail--price'><span>$</span>{context.productToShow.price}.<span>00</span></span>
                 <span className='product-detail--description'>{context.productToShow.description}</span>
+                <button className='product-detail--button'>
+                    <PlusIcon />
+                    <span>Add to the Cart</span>
+                </button>
             </div>
         </div>
     )

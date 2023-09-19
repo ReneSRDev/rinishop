@@ -11,11 +11,15 @@
 }
 
 .product-icon {
-    @apply transition-all duration-300 ease-in-out absolute w-8 h-8 top-2 right-2 flex justify-center items-center bg-color-primary rounded-full;
+    @apply transition-all duration-300 ease-in-out absolute z-10 w-8 h-8 top-2 right-2 flex justify-center items-center bg-color-primary rounded-full;
 }
 
 .product-icon svg {
     @apply w-6 h-6 text-white;
+}
+
+.product-icon.product-added {
+    @apply bg-color-fourth pointer-events-none;
 }
 
 .product-container--info {

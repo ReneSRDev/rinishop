@@ -108,6 +108,12 @@ export const ShopProvider = ({ children }) => {
 
     const [productToShow, setProductToShow] = useState({});
 
+    const [isProductsCartOpen, setIsProductsCartOpen] = useState(false);
+    const openProductsCart = () => setIsProductsCartOpen(true);
+    const closeProductsCart = () => setIsProductsCartOpen(false);
+
+    const [productsCart, setProductsCart] = useState([]);
+
     /* Products - State of the products */
     const [products, setProducts] = useState(null);
 
@@ -143,6 +149,11 @@ export const ShopProvider = ({ children }) => {
             closeProductDetail,
             productToShow,
             setProductToShow,
+            isProductsCartOpen,
+            openProductsCart,
+            closeProductsCart,
+            productsCart,
+            setProductsCart,
             products,
             setProducts,
         }}>

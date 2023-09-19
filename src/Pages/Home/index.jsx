@@ -3,6 +3,7 @@ import { ShopContext } from '../../Context';
 import Layout from '../../Components/Layout';
 import Product from '../../Components/Product'
 import ProductDetail from '../../Components/ProductDetail';
+import ProductsCart from '../../Components/ProductsCart';
 import { ArrowSmallRightIcon, ArrowSmallLeftIcon } from '@heroicons/react/24/outline';
 import './style.css';
 
@@ -65,6 +66,7 @@ function Home() {
                 }
             </div>
             <ProductDetail />
+            <ProductsCart />
         </Layout>
     )
 }

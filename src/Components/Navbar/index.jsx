@@ -5,8 +5,10 @@ import { BuildingStorefrontIcon, Bars3Icon, ShoppingBagIcon, UserIcon, XMarkIcon
 import './style.css'
 
 const Navbar = () => {
+    const context = useContext(ShopContext);
+
     const activeStyle = 'menu-active';
-    const demoCartCounter = 0;
+    const cartCounter = context.productsCart.length;
 
     const flagCartCounter = (cartCounter) => {
         if (cartCounter > 0) {
@@ -15,8 +17,6 @@ const Navbar = () => {
             return 'hidden'
         }
     }
-
-    const context = useContext(ShopContext);
 
     return (
         <nav className='navbar'>
@@ -86,8 +86,11 @@ const Navbar = () => {
                     <UserIcon className='user-icon' />
                     <span className='user-info'>My Orders</span>
                 </div>
-                <div className='header-order'>
-                    <span className={flagCartCounter(demoCartCounter)}>{demoCartCounter}</span>
+                <div
+                    className='header-order'
+                    onClick={() => context.openProductsCart()}
+                >
+                    <span className={flagCartCounter(cartCounter)}>{cartCounter}</span>
                     <ShoppingBagIcon className='order-icon' />
                 </div>
                 <button

@@ -14,6 +14,7 @@ export default {
         "color-primary": "var(--color-primary)",
         "color-secondary": "var(--color-secondary)",
         "color-tertiary": "var(--color-tertiary)",
+        "color-fourth": "var(--color-fourth)"
       },
       fontFamily: {
         'anton': ['var(--font-anton)']

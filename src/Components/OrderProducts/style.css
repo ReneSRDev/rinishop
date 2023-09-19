@@ -1,0 +1,39 @@
+.products-cart--element {
+    @apply flex justify-between items-center mb-4 last:mb-0;
+}
+
+.products-cart-left {
+    @apply flex items-center gap-2;
+}
+
+.products-cart-img {
+    @apply w-20 h-20;
+}
+
+.products-cart-img img {
+    @apply w-full h-full object-cover rounded-lg;
+}
+
+.products-cart-title {
+    @apply text-sm font-medium text-white truncate text-ellipsis w-28;
+}
+
+.products-cart-right {
+    @apply flex items-center gap-2;   
+}
+
+.products-cart-price {
+    @apply text-lg font-bold text-white;
+}
+
+.products-cart-icon {
+    @apply w-8 h-8 flex justify-center items-center;
+}
+
+.products-cart-icon svg {
+    @apply transition-all duration-300 ease-in-out w-6 h-6 text-white cursor-pointer;
+}
+
+.products-cart-icon:hover svg {
+    @apply text-color-tertiary;
+}
