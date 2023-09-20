@@ -1,10 +1,40 @@
 import { useContext } from 'react';
 import { ShopContext } from '../../Context';
-import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { CheckIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import './style.css';
 
 const ProductDetail = () => {
     const context = useContext(ShopContext);
+
+    const addProductCart = (event, productData) => {
+        event.stopPropagation();
+        context.closeProductDetail();
+        context.openProductsCart();
+        context.setProductsCart([...context.productsCart, productData]);
+    }
+
+    const renderButton = (id) => {
+        const isInCart = context.productsCart.filter(product => product.id === id).length > 0;
+
+        if (!isInCart) {
+            return (
+                <button
+                    className='product-detail--button'
+                    onClick={() => addProductCart(event, context.productToShow)}    
+                >
+                    <PlusIcon />
+                    <span>Add to the Cart</span>
+                </button>
+            )
+        } else {
+            return (
+                <button className='product-detail--button product-added'>
+                    <CheckIcon />
+                    <span>Added to the Cart</span>
+                </button>
+            )
+        }
+    }
 
     return (
         <div
@@ -24,10 +54,7 @@ const ProductDetail = () => {
                 <span className='product-detail--title'>{context.productToShow.title}</span>
                 <span className='product-detail--price'><span>$</span>{context.productToShow.price}.<span>00</span></span>
                 <span className='product-detail--description'>{context.productToShow.description}</span>
-                <button className='product-detail--button'>
-                    <PlusIcon />
-                    <span>Add to the Cart</span>
-                </button>
+                {renderButton(context.productToShow.id)}
             </div>
         </div>
     )

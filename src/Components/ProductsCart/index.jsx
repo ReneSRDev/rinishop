@@ -1,7 +1,8 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { ShopContext } from '../../Context';
 import OrderProducts from '../OrderProducts';
-import { totalPrice } from '../utils';
+import { getDate, totalPrice } from '../utils';
 import { ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import './style.css';
 
@@ -11,6 +12,19 @@ const ProductsCart = () => {
     const handleDelete = (id) => {
         const productsKeep = context.productsCart.filter(product => product.id != id);
         context.setProductsCart(productsKeep);
+    }
+
+    const handleBuy = () => {
+        const orderToAdd = {
+            date: getDate(),
+            products: context.productsCart,
+            totalProducts: context.productsCart.length,
+            totalPrice: totalPrice(context.productsCart)
+        };
+
+        context.setOrder([...context.order, orderToAdd]);
+        context.setProductsCart([]);
+        context.closeProductsCart();
     }
 
     return (
@@ -43,10 +57,15 @@ const ProductsCart = () => {
                     <span className='products-cart--total-text'>Total:</span>
                     <span className='products-cart--total-number'>${totalPrice(context.productsCart)}.00</span>
                 </div>
-                <button className='products-cart--button'>
-                    <ShoppingBagIcon />
-                    <span>Buy</span>
-                </button>
+                <Link to='my-orders/last'>
+                    <button
+                        className='products-cart--button'
+                        onClick={() => handleBuy()}
+                    >
+                        <ShoppingBagIcon />
+                        <span>Buy</span>
+                    </button>
+                </Link>
             </div>
         </div>
     )

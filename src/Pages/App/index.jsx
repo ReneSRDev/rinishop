@@ -14,14 +14,14 @@ const AppRoutes = () => {
     { path: "/:brand", element: <Home /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
-    { path: "/my-orders/id", element: <MyOrders /> },
+    { path: "/my-orders/:id", element: <MyOrder /> },
     { path: "/*", element: <NotFound /> },
   ]);
 
   return routes;
 }
 
-function App() {
+const App = () => {
   return (
     <ShopProvider>
       <BrowserRouter>

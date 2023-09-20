@@ -12,9 +12,24 @@ const Navbar = () => {
 
     const flagCartCounter = (cartCounter) => {
         if (cartCounter > 0) {
-            return 'order-counter';
+            return (
+                <div
+                    className='header-order cursor-pointer'
+                    onClick={() => context.openProductsCart()}
+                >
+                    <span className='order-counter'>{cartCounter}</span>
+                    <ShoppingBagIcon className='order-icon' />
+                </div>
+            )
         } else {
-            return 'hidden'
+            return (
+                <div
+                    className='header-order'
+                >
+                    <span className='hidden'>{cartCounter}</span>
+                    <ShoppingBagIcon className='order-icon' />
+                </div>
+            )
         }
     }
 
@@ -86,13 +101,7 @@ const Navbar = () => {
                     <UserIcon className='user-icon' />
                     <span className='user-info'>My Orders</span>
                 </div>
-                <div
-                    className='header-order'
-                    onClick={() => context.openProductsCart()}
-                >
-                    <span className={flagCartCounter(cartCounter)}>{cartCounter}</span>
-                    <ShoppingBagIcon className='order-icon' />
-                </div>
+                    {flagCartCounter(cartCounter)}
                 <button
                     className='header-button-menu'
                     onClick={() => context.openNavMenu()}

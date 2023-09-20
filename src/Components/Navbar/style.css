@@ -70,7 +70,7 @@
 }
 
 .header-order {
-    @apply w-8 h-8 relative flex items-center justify-center cursor-pointer xl:w-9 xl:h-9;
+    @apply w-8 h-8 relative flex items-center justify-center xl:w-9 xl:h-9;
 }
 
 .order-counter {

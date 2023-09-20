@@ -50,6 +50,10 @@
     @apply transition-all duration-300 ease-in-out w-full h-14 flex justify-center items-center bg-body-secondary mt-auto text-white;
 }
 
+.product-detail--button.product-added {
+    @apply bg-color-fourth pointer-events-none;
+}
+
 .product-detail--button svg {
     @apply w-6 h-6 mr-2;
 }

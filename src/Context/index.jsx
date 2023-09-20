@@ -114,6 +114,8 @@ export const ShopProvider = ({ children }) => {
 
     const [productsCart, setProductsCart] = useState([]);
 
+    const [order, setOrder] = useState([]);
+
     /* Products - State of the products */
     const [products, setProducts] = useState(null);
 
@@ -154,6 +156,8 @@ export const ShopProvider = ({ children }) => {
             closeProductsCart,
             productsCart,
             setProductsCart,
+            order,
+            setOrder,
             products,
             setProducts,
         }}>
