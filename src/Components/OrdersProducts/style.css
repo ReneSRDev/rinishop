@@ -1,13 +1,13 @@
 .orders-container {
-    @apply flex justify-between items-center w-60 p-5 border border-color-primary rounded-lg sm:w-80 lg:w-96;  
+    @apply transition-all duration-300 ease-in-out flex justify-between items-center w-full p-5 bg-color-primary rounded-xl;  
 }
 
 .orders-container--left {
-    @apply flex flex-col gap-3;
+    @apply flex flex-col w-1/2;
 }
 
 .orders-container--date {
-    @apply text-lg font-light text-white;
+    @apply text-lg font-light text-white truncate text-ellipsis;
 }
 
 .orders-container--articles {
@@ -15,7 +15,7 @@
 }
 
 .orders-container--right {
-    @apply flex items-center gap-3;
+    @apply flex items-center justify-end w-1/2;
 }
 
 .orders-container--price {
@@ -23,9 +23,17 @@
 }
 
 .orders-container--icon {
-    @apply w-8 h-8 flex items-center justify-center;
+    @apply  transition-all duration-300 ease-in-out w-8 h-8 relative left-0 flex items-center justify-center sm:ml-5 md:ml-8;
 }
 
 .orders-container--icon svg {
     @apply w-6 h-6 text-white cursor-pointer;
+}
+
+.orders-container:hover {
+    @apply bg-color-tertiary
+}
+
+.orders-container:hover .orders-container--icon {
+    @apply left-3;
 }

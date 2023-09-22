@@ -1,9 +1,9 @@
 .index-top {
-    @apply flex px-4 items-center mb-5 gap-4 sm:px-0 md:mb-8;
+    @apply flex flex-wrap px-4 items-center mb-5 gap-4 sm:px-0 md:mb-8 md:gap-5;
 }
 
 .top-info {
-    @apply flex flex-col gap-y-1;
+    @apply flex flex-col gap-y-1 md:order-1;
 }
 
 .top-info .first-line {
@@ -15,7 +15,7 @@
 }
 
 .index-select {
-    @apply ml-auto;
+    @apply ml-auto md:order-3;
 }
 
 .index-select select {
@@ -27,7 +27,7 @@
 }
 
 .top-control {
-    @apply flex gap-2;
+    @apply flex gap-2 md:order-4;
 }
 
 .top-control button {
@@ -46,6 +46,18 @@
     @apply w-6 h-6 text-white;
 }
 
+.index-search {
+    @apply w-full md:w-96 md:order-2;
+}
+
+.index-search input {
+    @apply w-full h-10 leading-10 px-4 border border-white rounded-lg focus:outline-none;
+}
+
 .index-products {
     @apply grid gap-4 grid-cols-1 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 2xl:gap-x-8;
+}
+
+.index-noarticle {
+    @apply w-full flex justify-center text-lg leading-9 font-bold uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl
 }

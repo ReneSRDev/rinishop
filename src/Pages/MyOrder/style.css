@@ -1,5 +1,5 @@
 .order-container {
-    @apply w-64 mx-auto sm:w-80;
+    @apply w-64 mx-auto sm:w-80 md:w-3/4;
 }
 
 .order-header {
@@ -7,17 +7,33 @@
 }
 
 .order-icon {
-    @apply absolute left-0 w-8 h-8 cursor-pointer flex justify-center items-center;
+    @apply transition-all duration-300 ease-in-out absolute left-0 w-8 h-8 cursor-pointer flex justify-center items-center rounded-full border border-white;
 }
 
 .order-icon svg {
     @apply w-6 h-6 text-white;
 }
 
+.order-icon:hover {
+    @apply border-color-tertiary bg-color-tertiary;
+}
+
 .order-title {
     @apply text-3xl leading-8 font-bold text-white uppercase;
 }
 
+.order-list .products-cart-left {
+    @apply md:w-3/4
+}
+
 .order-list .products-cart-img {
-    @apply w-12 h-12 sm:w-20 sm:h-20;
+    @apply w-12 h-12 sm:w-20 sm:h-20 md:w-32 md:h-32;
+}
+
+.order-list .products-cart-title {
+    @apply sm:w-36 md:w-60 md:text-2xl lg:w-3/4 xl:ml-4;
+}
+
+.order-list .products-cart-price {
+    @apply md:text-3xl;
 }

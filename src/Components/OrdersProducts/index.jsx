@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import './style.css'
 
 const OrdersProducts = props => {
     const { date, totalPrice, totalProducts } = props;

@@ -58,15 +58,23 @@
 }
 
 .header-user {
-    @apply ml-auto flex items-center justify-center cursor-pointer;
+    @apply ml-auto cursor-pointer;
+}
+
+.header-user a {
+    @apply transition duration-300 ease-in-out flex items-center justify-center text-white;
 }
 
 .user-icon {
-    @apply w-8 h-8 text-xl text-white xl:w-9 xl:h-9;
+    @apply w-8 h-8 text-xl xl:w-9 xl:h-9;
 }
 
 .user-info {
-    @apply hidden ml-1 text-base font-medium uppercase lg:inline-block xl:text-lg;
+    @apply hidden ml-1 text-base font-medium uppercase lg:flex xl:text-lg;
+}
+
+.header-user:hover a {
+    @apply text-color-tertiary
 }
 
 .header-order {
@@ -80,7 +88,7 @@
 
 }
 
-.order-icon {
+.header-order--icon {
     @apply text-xl text-white;
 }
 

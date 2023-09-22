@@ -24,6 +24,37 @@ function Home() {
         context.setLastProductToView(context.productToView);
     }
 
+    const currentPath = window.location.pathname;
+    let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+    
+    const productsToView = () => {
+        
+        if (index) {
+            context.setSearchByCategory(index);
+        } else {
+            context.setSearchByCategory(null);
+        }
+        
+        if (context.filteredProducts?.length > 0) {
+            return (
+                <div className='index-products'>
+                    {
+                        context.filteredProducts?.slice(context.firstProductToView,context.lastProductToView).map(product => (
+                            <Product key={product.id} data={product} />
+                        ))
+                    }
+                </div>
+            )
+        } else {
+            return (
+                <div className='index-noarticle'>
+                    <span>We don&apos;t have anything article</span>
+                </div>
+            )
+        }
+    }
+
     return (
         <Layout>
             <div className='index-top'>
@@ -57,14 +88,15 @@ function Home() {
                         />
                     </button>
                 </div>
+                <div className='index-search'>
+                    <input
+                        type="text"
+                        placeholder='Search a product'
+                        onChange={(event) => context.setSearchByTitle(event.target.value)}
+                    />
+                </div>
             </div>
-            <div className='index-products'>
-                {
-                    context.products?.slice(context.firstProductToView,context.lastProductToView).map(product => (
-                        <Product key={product.id} data={product} />
-                    ))
-                }
-            </div>
+            {productsToView()}
             <ProductDetail />
             <ProductsCart />
         </Layout>

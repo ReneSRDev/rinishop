@@ -1,0 +1,47 @@
+.footer {
+    @apply w-full bg-body-secondary;
+}
+
+.footer-container {
+    @apply mx-auto max-w-screen-2xl px-4 py-3 flex flex-col items-center justify-between gap-8 text-white sm:flex-row sm:gap-0 sm:h-20 sm:py-0 2xl:px-8;
+}
+
+.footer-logo a{
+    @apply transition-all duration-300 ease-in-out flex items-center;
+}
+
+.footer-logo a:hover{
+    @apply flex items-center text-color-tertiary;
+}
+
+.footer-logo .logo-icon {
+    @apply w-5 h-5 lg:w-8 lg:h-8;
+}
+
+.footer-logo .logo-text {
+    @apply text-lg leading-5 lg:text-2xl lg:leading-6;
+}
+
+.footer-info {
+    @apply text-lg leading-5 font-medium text-center;
+}
+
+.footer-info span {
+    @apply block last:font-bold lg:inline-block lg:last:ml-1;
+}
+
+.footer-social ul{
+    @apply flex items-center gap-4;
+}
+
+.footer-social ul li a {
+    @apply inline-block;
+}
+
+.footer-social ul li a svg {
+    @apply transition-all duration-300 ease-in-out w-8 h-8 fill-white;
+}
+
+.footer-social ul li a:hover svg {
+    @apply fill-color-tertiary;
+}

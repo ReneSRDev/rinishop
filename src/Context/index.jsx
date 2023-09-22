@@ -128,6 +128,40 @@ export const ShopProvider = ({ children }) => {
         }, 3000);
     }, []);
 
+    const [filteredProducts, setFilteredProducts] = useState(null);
+
+    const [searchByTitle, setSearchByTitle] =useState(null);
+    const [searchByCategory, setSearchByCategory] =useState(null);
+
+    const filteredProductsByTitle = (products, searchByTitle) => {
+        return products?.filter(product => product.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+    }
+    const filteredProductsByCategory = (products, searchByCategory) => {
+        return products?.filter(product => product.category.name.toLowerCase().includes(searchByCategory.toLowerCase()));
+    }
+
+    const filterBy = (searchType, products, searchByTitle, searchByCategory) => {
+        if (searchType === 'BY_TITLE') {
+            return filteredProductsByTitle(products, searchByTitle)
+        }
+        if (searchType === 'BY_CATEGORY') {
+            return filteredProductsByCategory(products, searchByCategory)
+        }
+        if (searchType === 'BY_TITLE_AND_CATEGORY') {
+            return filteredProductsByCategory(products, searchByCategory).filter(product => product.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+        }
+        if (!searchType) {
+            return products
+        }
+    }
+
+    useEffect(() => {
+        if (searchByTitle && searchByCategory) setFilteredProducts(filterBy('BY_TITLE_AND_CATEGORY', products, searchByTitle, searchByCategory))
+        if (searchByTitle && !searchByCategory) setFilteredProducts(filterBy('BY_TITLE', products, searchByTitle, searchByCategory))
+        if (!searchByTitle && searchByCategory) setFilteredProducts(filterBy('BY_CATEGORY', products, searchByTitle, searchByCategory))
+        if (!searchByTitle && !searchByCategory) setFilteredProducts(filterBy(null, products, searchByTitle, searchByCategory))
+    }, [products, searchByTitle, searchByCategory])
+
     return (
         <ShopContext.Provider value= {{
             isNavMenuOpen,
@@ -160,6 +194,12 @@ export const ShopProvider = ({ children }) => {
             setOrder,
             products,
             setProducts,
+            searchByTitle,
+            setSearchByTitle,
+            searchByCategory,
+            setSearchByCategory,
+            filteredProducts,
+            setFilteredProducts,
         }}>
             {children}
         </ShopContext.Provider>

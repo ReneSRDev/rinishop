@@ -3,7 +3,7 @@
 }
 
 .products-cart-left {
-    @apply flex items-center gap-2;
+    @apply flex items-center;
 }
 
 .products-cart-img {
@@ -15,11 +15,11 @@
 }
 
 .products-cart-title {
-    @apply text-sm font-medium text-white truncate text-ellipsis w-28;
+    @apply text-sm font-medium text-white truncate text-ellipsis w-28 ml-2;
 }
 
 .products-cart-right {
-    @apply flex items-center gap-2;   
+    @apply flex items-center;   
 }
 
 .products-cart-price {

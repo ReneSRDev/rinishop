@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { ShopContext } from "../../Context"
 import { BuildingStorefrontIcon, Bars3Icon, ShoppingBagIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import './style.css'
@@ -18,7 +18,7 @@ const Navbar = () => {
                     onClick={() => context.openProductsCart()}
                 >
                     <span className='order-counter'>{cartCounter}</span>
-                    <ShoppingBagIcon className='order-icon' />
+                    <ShoppingBagIcon className='header-order--icon' />
                 </div>
             )
         } else {
@@ -27,7 +27,7 @@ const Navbar = () => {
                     className='header-order'
                 >
                     <span className='hidden'>{cartCounter}</span>
-                    <ShoppingBagIcon className='order-icon' />
+                    <ShoppingBagIcon className='header-order-icon' />
                 </div>
             )
         }
@@ -98,8 +98,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='header-user'>
-                    <UserIcon className='user-icon' />
-                    <span className='user-info'>My Orders</span>
+                    <Link to='/my-orders'>
+                        <UserIcon className='user-icon' />
+                        <span className='user-info'>My Orders</span>
+                    </Link>
                 </div>
                     {flagCartCounter(cartCounter)}
                 <button

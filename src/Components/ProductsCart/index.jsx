@@ -25,6 +25,7 @@ const ProductsCart = () => {
         context.setOrder([...context.order, orderToAdd]);
         context.setProductsCart([]);
         context.closeProductsCart();
+        context.setSearchByTitle(null);
     }
 
     return (

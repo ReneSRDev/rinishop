@@ -11,11 +11,15 @@
 }
 
 .products-cart--icon svg {
-    @apply w-6 h-6 text-white;
+    @apply transition-all duration-300 ease-in-out w-6 h-6 text-white;
+}
+
+.products-cart--icon:hover svg {
+    @apply text-color-tertiary
 }
 
 .products-cart--container {
-    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 flex flex-col sm:w-96 lg:pt-9;
+    @apply w-4/5 h-full relative z-10 bg-color-primary p-5 flex flex-col sm:w-[500px] lg:pt-9;
 }
 
 .products-cart--header {

@@ -1,0 +1,15 @@
+.myOrders-container {
+    @apply w-72 mx-auto sm:w-96 md:w-[640px];
+}
+
+.myOrders-header {
+    @apply flex justify-center relative mb-8;
+}
+
+.myOrders-title {
+    @apply text-3xl leading-8 font-bold text-white uppercase;
+}
+
+.myOrders-list a {
+    @apply block mb-4 last:mb-0;
+}

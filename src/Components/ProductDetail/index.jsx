@@ -9,7 +9,11 @@ const ProductDetail = () => {
     const addProductCart = (event, productData) => {
         event.stopPropagation();
         context.closeProductDetail();
-        context.openProductsCart();
+
+        if (context.widthScreen >= 1028) {
+            context.openProductsCart();
+        }
+        
         context.setProductsCart([...context.productsCart, productData]);
     }
 
