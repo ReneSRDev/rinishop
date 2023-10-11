@@ -19,7 +19,7 @@
 }
 
 .header-menu {
-    @apply fixed w-full h-full top-0 left-0 z-10 flex justify-end items-start lg:relative lg:w-auto lg:h-auto lg:justify-start;
+    @apply fixed w-full h-full top-0 left-0 z-20 flex justify-end items-start lg:relative lg:w-auto lg:h-auto lg:justify-start;
 }
 
 .menu-inactive {
